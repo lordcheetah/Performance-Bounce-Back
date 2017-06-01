@@ -9,6 +9,7 @@ public class Throw : MonoBehaviour
     private SteamVR_Controller.Device device;
     public float throwForce = 2f;
 
+	private Rigidbody rigidBody;
     // Use this for initialization
     void Start()
     {
@@ -27,11 +28,11 @@ public class Throw : MonoBehaviour
         {
             if (device.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
             {
-                Debug.Log("You have released the trigger");
+                //Debug.Log("You have released the trigger");
 
                 //Multi Throwing
                 col.transform.SetParent(null);
-                Rigidbody rigidBody = col.GetComponent<Rigidbody>();
+                rigidBody = col.GetComponent<Rigidbody>();
                 rigidBody.isKinematic = false;
 
                 rigidBody.velocity = device.velocity * throwForce;
@@ -39,7 +40,7 @@ public class Throw : MonoBehaviour
             }
             else if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
             {
-                Debug.Log("You are touching down the trigger on an object");
+                //Debug.Log("You are touching down the trigger on an object");
                 col.GetComponent<Rigidbody>().isKinematic = true;
                 col.transform.SetParent(gameObject.transform);
 

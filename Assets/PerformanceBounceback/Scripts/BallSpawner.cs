@@ -14,6 +14,10 @@ public class BallSpawner : MonoBehaviour {
     private float cooldown;
     private float cooldownLength = 0.5f;
 
+	private GameObject selectedBall;
+	private Rigidbody selectedRigidbody;
+	private GameObject obj;
+
     void Awake()
     {
         current = this; //makes it so the functions in ObjectPool can be accessed easily anywhere
@@ -42,12 +46,12 @@ public GameObject GetPooledBall()
     if (pooledBalls[ballPoolNum].activeInHierarchy)
     {
         //create a new bullet and add it to the bulletList
-        GameObject obj = Instantiate(pooledBall);
+        obj = Instantiate(pooledBall);
         pooledBalls.Add(obj);
         ballsAmount++;
         ballPoolNum = ballsAmount - 1;
     }
-        Debug.Log(ballPoolNum);
+        //Debug.Log(ballPoolNum);
         return pooledBalls[ballPoolNum];
 }
    	
@@ -63,9 +67,9 @@ public GameObject GetPooledBall()
 
     void SpawnBall()
     {
-        GameObject selectedBall = BallSpawner.current.GetPooledBall();
+        selectedBall = BallSpawner.current.GetPooledBall();
         selectedBall.transform.position = transform.position;
-        Rigidbody selectedRigidbody = selectedBall.GetComponent<Rigidbody>();
+        selectedRigidbody = selectedBall.GetComponent<Rigidbody>();
         selectedRigidbody.velocity = Vector3.zero;
         selectedRigidbody.angularVelocity = Vector3.zero;
         selectedBall.SetActive(true);

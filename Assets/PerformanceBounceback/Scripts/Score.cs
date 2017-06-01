@@ -6,18 +6,23 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour {
 
     public GameManager gameManager;
-
+	private Text text;
+	private int lastScore = 0;
+	private int score = 0;
 	// Use this for initialization
 	void Start () {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+		text = GetComponentInChildren<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		score = gameManager.score;
 
-        Text text = GetComponentInChildren<Text>();
-        text.text = "Score: " + gameManager.score.ToString();
-
-		
+		if (score != lastScore)
+		{
+			text.text = "Score: " + score.ToString ();
+			lastScore = score;
+		}
 	}
 }

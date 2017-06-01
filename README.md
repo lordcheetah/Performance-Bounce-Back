@@ -7,6 +7,6 @@ Starter project for VRND Performance Bounceback
 * You'll find the main scene at `Assets/PerformanceBounceback/Scenes/Scene0.unity`.
 
 Name: James Guenther
-Time to complete:
-Liked:
-Challenging: 
+Time to complete: 3 hours
+Liked: I enjoyed testing my optimization skills
+Challenging: The balls aren't getting to the trampolines? That doesn't seem right?
