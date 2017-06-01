@@ -9,4 +9,4 @@ Starter project for VRND Performance Bounceback
 Name: James Guenther
 Time to complete: 3 hours
 Liked: I enjoyed testing my optimization skills
-Challenging: The balls aren't getting to the trampolines? That doesn't seem right?
+Challenging: Took a bit to figure out why the trampolines weren't moving
